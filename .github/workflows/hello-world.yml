@@ -1,0 +1,25 @@
+# .github/workflows/hello-world.yml
+
+name: Hello World
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  saludo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del codigo
+        uses: actions/checkout@v4
+
+      - name: Imprimir Hello World
+        run: echo "Hola Mundo desde GitHub Actions!"
+
+      - name: Mostrar info del entorno
+        run: |
+          echo "Rama: ${{ github.ref_name }}"
+          echo "Repositorio: ${{ github.repository }}"
+          echo "Usuario: ${{ github.actor }}"
